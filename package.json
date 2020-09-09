@@ -1,7 +1,8 @@
 {
   "name": "reactelectron",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -14,7 +15,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-dev": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds",
+    "package-win": "electron-packager . ReactElectron --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"ReactElectron\"",
+    "package-linux": "electron-packager . ReactElectron --overwrite --asar=true --platform=linux --arch=x64 --prune=true --out=release-builds"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +36,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "Test App",
+  "main": "main.js",
+  "author": "Patrick Evers",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.1",
+    "electron-builder": "^22.8.0"
   }
 }
